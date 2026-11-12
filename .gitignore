@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Binaries & PyInstaller / Build
+*.exe
+build/
+dist/
+*.spec
+
+# Local Environment
+.venv/
+venv/
+ENV/

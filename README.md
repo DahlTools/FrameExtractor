@@ -1,55 +1,72 @@
-# Frame Extractor 
+# Frame Extractor (Full Resolution)
 
-Frame Extractor is an executable drag-and-drop application designed to simplify the process of extracting frames from videos. In this initial release, we introduce the core features of Frame Extractor, enabling users to effortlessly extract frames from video files and save them as individual PNG image files.
-
-## Key Features
-
-- **Frame Extraction**: Easily extract frames from a video of your choice.
-
-- **Flexible Input**: Simply drag and drop your video file onto the Frame Extractor executable.
-
-- **Custom Output**: Define the output folder where the extracted frames will be saved. The frames are organized with sequentially numbered filenames for your convenience.
-
-- **Adjustable Frame Rate**: Control the frame extraction rate (frames per second) to meet your specific requirements.
-
-### Use Cases
-
-Frame Extractor is a versatile tool with applications in various scenarios:
-
-- Video Analysis: Empower users to perform in-depth video analysis by breaking down videos into individual frames.
-
-- Object Detection: Assist machine learning enthusiasts and computer vision practitioners in creating training datasets by extracting frames containing objects of interest from videos.
-
-- Video Summarization: Generate visual summaries of videos by extracting key frames at regular intervals.
-
-- Quality Control: Facilitate frame-by-frame inspection in video production or quality control processes.
-
-- Creating Image Datasets: Convert videos into image datasets suitable for machine learning tasks, such as image classification or object recognition.
-
-### Getting Started
-
-1. **Download**: Download the Frame Extractor executable from the [Release section](https://github.com/your-repo/frame-extractor/releases) of the GitHub repository.
-
-2. **Usage**: Simply drag and drop your video file onto the Frame Extractor executable. Follow the on-screen instructions to complete the extraction process.
-
-3. **Review Frames**: Once the extraction process is complete, you'll find the extracted frames neatly organized in the specified output folder.
-
-### Dependencies
-
-- None. The Frame Extractor executable is self-contained.
-
-### License
-
-Frame Extractor is open-source and released under the MIT License. See the [LICENSE](LICENSE) file for detailed licensing information.
-
-### Contributions
-
-We welcome contributions from the community! If you encounter issues or have ideas for improvements, please submit them through GitHub Issues or consider contributing code through pull requests.
-
-### Acknowledgments
-
-Frame Extractor utilizes the [MoviePy](https://zulko.github.io/moviepy/) library for video processing. We extend our gratitude to the creators of this library.
+<p align="center">
+  <img src="icon.png" width="128" height="128" alt="Frame Extractor Logo">
+  <br>
+  <b>Fast, lossless, 100% native resolution video frame extractor for Windows.</b>
+  <br><br>
+  <a href="https://buymeacoffee.com/dahltools" target="_blank">
+    <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" width="160">
+  </a>
+</p>
 
 ---
 
-**Note**: Always respect copyright and usage rights when extracting frames from videos, and ensure you have the necessary permissions to use the video content.
+## Features
+
+- **100% Native Resolution Retained**: Extracted frames match the exact pixel dimensions of your source video (4K remains 4K, 1080p remains 1080p). Zero distortion or squishing.
+- **Drag-and-Drop Support**:
+  - Drag and drop videos directly into the app window.
+  - Or drag and drop video files onto `FrameExtractor.exe` or `run.bat` in Windows Explorer.
+- **Lossless Quality**: Exports to uncompressed PNG by default, with an optional toggle for high-quality JPG.
+- **Flexible Extraction Modes**:
+  - **Every Frame**: Extracts every single frame from the video.
+  - **1 per Second (1 FPS)**: Grabs one frame per second.
+  - **Every N Frames**: Customizable step interval (e.g. every 5th or 10th frame).
+- **Fast Performance**: Utilizes FFmpeg for rapid extraction (hundreds of frames per second) without locking the UI.
+- **Convenient Output**: Automatically creates an output folder alongside your video and provides an **"Open Output Folder"** button upon completion.
+
+---
+
+## Getting Started
+
+### Option 1: Standalone Executable (No Python Required)
+1. Download `FrameExtractor.exe` from the [Releases](https://github.com/DahlTools/FrameExtractor/releases) section.
+2. Double-click `FrameExtractor.exe` or drag a video file onto the executable icon.
+
+### Option 2: Running from Source
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/DahlTools/FrameExtractor.git
+   cd FrameExtractor
+   ```
+2. Install the required dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. Run the application:
+   ```bash
+   python FrameExtractor.py
+   ```
+
+*Note: For maximum speed, make sure [FFmpeg](https://ffmpeg.org/download.html) is installed and available in your system PATH.*
+
+---
+
+## Building the Executable
+
+To build a standalone single-file executable using PyInstaller:
+
+```bash
+pyinstaller --noconfirm --onefile --windowed --icon="icon.ico" --name="FrameExtractor" "FrameExtractor.py"
+```
+
+The resulting executable will be placed in the `dist/` directory.
+
+---
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+Inspired by the concept of [barisx/dragndropvideo2frame](https://github.com/barisx/dragndropvideo2frame).
